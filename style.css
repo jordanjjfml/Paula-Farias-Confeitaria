@@ -211,8 +211,10 @@ p {
 .slide img {
     width: 100%;
     height: 80%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     border-radius: 16px 16px 0 0;
+    background-color: #ffefd5; /* Adiciona fundo para imagens menores */
 }
 
 .slide p {

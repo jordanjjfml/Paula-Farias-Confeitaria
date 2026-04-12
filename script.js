@@ -17,6 +17,8 @@ links.forEach(link => {
         } else if (this.textContent.trim() === "Produtos") {
             sectionProdutos.classList.toggle("mostrar");
             sectionSobre.classList.remove("mostrar");
+        } else if (this.textContent.trim() === "Contato") {
+            alert("Paula Farias Confeitaria\nDoces e Salgados\n92984635768");
         } else {
             sectionSobre.classList.remove("mostrar");
             sectionProdutos.classList.remove("mostrar");
