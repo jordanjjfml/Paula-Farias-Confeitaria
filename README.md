@@ -66,9 +66,9 @@ Se você deseja clonar o projeto e executá-lo em sua máquina local, siga os pa
 
 ## ✒️ Autor
 
-Desenvolvido com 💻 e ☕ por **Jordan** — [https://www.linkedin.com/in/jordan-jymmy-jaber-farias-moraes-lins/ 
-
-https://github.com/jordanjjfml]
+Desenvolvido com 💻 e ☕ por **Jordan** — [https://www.linkedin.com/in/jordan-jymmy-jaber-farias-moraes-lins/]
 
 
-Desenvolvido com 💻 e ☕ por **Jordan** — [Seu Link do LinkedIn ou Perfil do GitHub]
+
+Desenvolvido com 💻 e ☕ por **Jordan** — [https://github.com/jordanjjfml]
+
