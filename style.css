@@ -1,166 +1,234 @@
-* {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #ffefd5;
+:root {
+    --bg: #fff9f4;
+    --bg-strong: #ffe8ee;
+    --panel: rgba(255, 255, 255, 0.7);
+    --pink-1: #f7b7c8;
+    --pink-2: #ec7aa4;
+    --pink-3: #d95b8b;
+    --rose: #ef6a96;
+    --chocolate: #7a3d2a;
+    --text: #3a2a2a;
+    --muted: #6d4c4d;
+    --shadow: rgba(196, 97, 153, 0.18);
+    --white: #ffffff;
 }
 
-html, body {
-    height: 100vh;
-    overflow: auto; /* Changed from hidden to allow scrolling on smaller screens */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(247, 183, 200, 0.28), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(236, 122, 164, 0.15), transparent 20%),
+        var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+a {
+    transition: all 0.25s ease;
 }
 
 header {
-    margin: 2rem 0 2.5rem 2rem; /* Changed to rem for responsiveness */
+    position: sticky;
+    top: 0;
+    z-index: 20;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    gap: 0.9rem 1.25rem;
+    padding: 1rem 1.5rem;
+    margin: 0 auto 1.5rem;
+    background: rgba(255, 249, 244, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(217, 91, 139, 0.12);
 }
 
 .Link-header {
+    position: relative;
     font-weight: 600;
-    font-size: 1rem; /* Changed to rem */
-    line-height: 1.2;
-    color: black;
+    font-size: 0.95rem;
+    color: var(--text);
+    text-decoration: none;
     cursor: pointer;
-    margin-right: 1.25rem;
+    padding: 0.35rem 0.5rem;
+}
+
+.Link-header::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: -0.15rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--pink-3), var(--pink-1));
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+.Link-header:hover::after,
+.Link-header:focus-visible::after {
+    transform: scaleX(1);
 }
 
 .whatsapp-link {
-    margin-right: 1.25rem;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 18px rgba(86, 48, 60, 0.08);
+}
+
+.whatsapp-link:hover,
+.whatsapp-link:focus-visible {
+    transform: translateY(-2px) scale(1.04);
 }
 
 .whatsapp-link img {
+    width: 24px;
+    height: 24px;
     transition: transform 0.2s ease;
 }
 
 .whatsapp-link:hover img {
-    transform: scale(1.1);
+    transform: scale(1.08);
+}
+
+.button-header,
+.button-main,
+.carrossel-btn {
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--pink-1), var(--pink-3));
+    box-shadow: 0 12px 24px rgba(217, 91, 139, 0.2);
 }
 
 .button-header {
-    background-color: pink;
-    border-radius: 16px;
-    width: 6.25rem; /* Changed to rem */
-    height: 2rem; /* Changed to rem */
-    border: none;
-    font-weight: 600;
-    font-size: 1rem; /* Changed to rem */
-    line-height: 1.2;
-    color: white;
-    cursor: pointer;
+    width: 6.5rem;
+    height: 2.3rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+}
+
+.button-header:hover,
+.button-main:hover,
+.carrossel-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(217, 91, 139, 0.22);
 }
 
 main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.25rem;
-    min-height: 60vh;
-    padding: 0 1rem; /* Added padding for small screens */
+    gap: clamp(1.5rem, 3vw, 3rem);
+    min-height: 70vh;
+    padding: 1rem clamp(1rem, 3vw, 3rem) 3rem;
 }
 
 .logo {
-    width: min(520px, 80vw); /* Responsive: max 520px or 80% of viewport width */
-    height: min(520px, 80vw);
-    display: block;
+    width: min(480px, 40vw);
+    aspect-ratio: 1;
     object-fit: cover;
     border-radius: 50%;
+    box-shadow: 0 20px 50px rgba(126, 62, 90, 0.12);
+    border: 8px solid rgba(255, 255, 255, 0.7);
 }
 
 section {
-    max-width: 400px;
-    text-align: center; /* Center text for better mobile layout */
+    max-width: 430px;
+    text-align: center;
 }
 
 h1 {
-    font-weight: 300;
-    font-size: 2.25rem; /* Changed to rem */
-    line-height: 2.75rem;
-    color: #e75480; /* Rosa chiclete, ideal para confeitaria */
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: var(--pink-3);
     margin-bottom: 0.75rem;
 }
 
 h2 {
-    font-weight: 300;
-    font-size: 1.5rem; /* Changed to rem */
-    line-height: 2rem;
-    color: #e75480; /* Rosa chiclete, ideal para confeitaria */
-    margin-bottom: 0.75rem;
+    font-weight: 600;
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    line-height: 1.3;
+    color: var(--rose);
+    margin-bottom: 1rem;
 }
 
 p {
-    font-weight: 400;
-    font-size: 1rem; /* Changed to rem */
-    line-height: 1.375rem;
-    color: chocolate;
-    width: 100%;
-    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 1.3rem;
 }
 
 .button-main {
-    background-color: pink;
-    border-radius: 16px;
-    width: 8.75rem; /* Changed to rem */
-    height: 2.5rem; /* Changed to rem */
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1rem; /* Changed to rem */
-    line-height: 1.2;
-    color: white;
+    border-radius: 999px;
+    width: 10rem;
+    height: 3rem;
+    font-size: 1rem;
 }
 
-#sobre {
-    max-width: 600px;
-    text-align: center;
-    padding: 2rem;
-    margin: 3rem auto;
-    background-color: rgba(255, 192, 203, 0.2);
-    border-radius: 16px;
-    display: none;
-    animation: fadeIn 0.3s ease-in;
-}
-
-#sobre.mostrar {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-#sobre h1 {
-    margin-bottom: 1.5rem;
-}
-
-#sobre p {
-    margin-bottom: 1.25rem;
-    line-height: 1.6;
-}
-
+#sobre,
 #produtos {
-    max-width: 900px;
+    width: min(980px, calc(100% - 2rem));
     text-align: center;
-    padding: 2rem;
-    margin: 3rem auto;
+    padding: 2rem 1.5rem;
+    margin: 2.5rem auto;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(217, 91, 139, 0.08);
+    border-radius: 28px;
+    box-shadow: 0 20px 40px var(--shadow);
     display: none;
-    animation: fadeIn 0.3s ease-in;
+    animation: fadeIn 0.35s ease;
 }
 
+#sobre.mostrar,
 #produtos.mostrar {
     display: block;
 }
 
+#sobre h1,
 #produtos h1 {
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
+}
+
+#sobre p {
+    max-width: 780px;
+    margin: 0 auto 1.2rem;
+    text-align: left;
+}
+
+#sobre p strong {
+    display: block;
+    color: var(--pink-3);
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
 }
 
 .carrossel-container {
@@ -168,22 +236,24 @@ p {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    position: relative;
 }
 
 .carrossel {
-    width: 300px;
-    height: 350px;
+    width: min(320px, 72vw);
+    height: 380px;
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 18px 30px rgba(155, 83, 112, 0.12);
+    background: linear-gradient(180deg, #fff7fa, #f8dfe8);
 }
 
 .slide {
     display: none;
+    width: 100%;
+    height: 100%;
     text-align: center;
-    animation: fade 0.5s ease-in;
+    animation: fade 0.45s ease;
 }
 
 .slide.fade {
@@ -195,149 +265,156 @@ p {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    color: white;
-    animation: fade 0.5s ease-in;
+    color: var(--white);
 }
 
 @keyframes fade {
     from {
         opacity: 0;
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
 .slide img {
     width: 100%;
-    height: 80%;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 16px 16px 0 0;
-    background-color: #ffefd5; /* Adiciona fundo para imagens menores */
+    height: 78%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    background: var(--bg);
 }
 
 .slide p {
-    background-color: rgba(231, 84, 128, 0.8);
     width: 100%;
-    padding: 0.75rem;
+    height: 22%;
     margin: 0;
-    font-weight: 600;
-    height: 20%;
+    padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, var(--pink-2), var(--pink-3));
+    color: var(--white);
+    font-weight: 700;
 }
 
 .carrossel-btn {
-    background-color: pink;
-    border: none;
+    width: 2.8rem;
+    height: 2.8rem;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
     font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s ease;
-}
-
-.carrossel-btn:hover {
-    background-color: #ff69b4;
+    line-height: 1;
 }
 
 .dots {
-    text-align: center;
-    margin-top: 1rem;
+    margin-top: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
-    background-color: #bbb;
+    width: 0.8rem;
+    height: 0.8rem;
     border-radius: 50%;
-    display: inline-block;
+    background: #d9c9d1;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 .dot.active {
-    background-color: #e75480;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: linear-gradient(135deg, var(--pink-2), var(--pink-3));
 }
 
-/* Media Query for Mobile (up to 768px) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     header {
-        margin: 1rem;
-        justify-content: center; /* Center header items */
+        gap: 0.6rem 0.9rem;
+        padding: 0.85rem 1rem;
     }
 
     .Link-header {
-        margin-right: 1rem;
-        font-size: 0.9rem; /* Slightly smaller font */
+        font-size: 0.82rem;
     }
 
     .button-header {
-        width: 5rem;
-        height: 1.8rem;
-        font-size: 0.9rem;
+        width: 5.5rem;
+        height: 2.1rem;
+        font-size: 0.8rem;
     }
 
     main {
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column;
         gap: 2rem;
-        padding: 1rem;
+        padding: 0.5rem 1rem 2.5rem;
     }
 
     .logo {
-        width: min(300px, 70vw); /* Smaller logo for mobile */
-        height: min(300px, 70vw);
+        width: min(300px, 70vw);
     }
 
     section {
-        max-width: 90vw; /* Allow section to take more width */
+        max-width: 95%;
     }
 
     h1 {
-        font-size: 1.8rem;
-        line-height: 2.2rem;
+        font-size: clamp(1.8rem, 8vw, 2.6rem);
     }
 
     h2 {
         font-size: 1.2rem;
-        line-height: 1.6rem;
     }
 
     p {
-        font-size: 0.9rem;
-        line-height: 1.3rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .button-main {
-        width: 7rem;
-        height: 2.2rem;
-        font-size: 0.9rem;
+        width: 8.8rem;
+        height: 2.7rem;
+    }
+
+    #sobre,
+    #produtos {
+        padding: 1.5rem 1rem;
+    }
+
+    #sobre p {
+        text-align: center;
     }
 }
 
-/* Media Query for Tablet (768px to 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .logo {
-        width: min(400px, 60vw);
-        height: min(400px, 60vw);
+@media (max-width: 480px) {
+    header {
+        justify-content: center;
     }
 
-    section {
-        max-width: 350px;
+    .Link-header {
+        font-size: 0.75rem;
     }
 
-    h1 {
-        font-size: 2rem;
-        line-height: 2.5rem;
+    .whatsapp-link {
+        width: 2.2rem;
+        height: 2.2rem;
     }
 
-    h2 {
-        font-size: 1.3rem;
-        line-height: 1.8rem;
+    .carrossel {
+        height: 320px;
     }
 }
